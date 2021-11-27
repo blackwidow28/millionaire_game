@@ -23,12 +23,9 @@ Question number	Question value
 print("Hello, what's your name?")
 name = input()
 print("Do you want to be a millionaire " + name + "?")
-answer = input("Y/N ")
-answer.upper()
-if answer == "Y":
-    print("Then lets play! Good luck!")
-else:
-    print("Then you should play another game. Goodbye!")
+answer = input("Y? ")
+print("Then lets play! Good luck!")
+
 
 questions_answers = {"£100": ["Who was elected President of the United States in 2017?", "1. Donald Trump", "2. Barack Obama", "3. George Bush", "4. Abraham Lincoln", "*Donald Trump"],
 "£200": ["Which religion believes in One God and the last prophet Muhammad?", "1. Buddhism", "2. Islam", "3. Hinduism", "4. Janeism", "*Islam"], "£300": ["What is the currency of France?", "1. Franc", "2. Euro", "3. Riyal", "4. Rupees", "*Euro"],
@@ -46,7 +43,23 @@ questions_answers = {"£100": ["Who was elected President of the United States i
 "£500,000": ["What is the speed of sound approximately?", "1. 120km/h", "2. 1,200km/h", "3. 700km/h", "4. 900km/h", "*1,200km/h"], 
 "£1,000,000": ["The phrase ”I think, therefore I am” was coined by which philosopher?", "1. Socrates", "2. Plato", "3. Aristotle", "4. Descartes", "*Descartes"]}
 
+def display_questions():
+    for prize in questions_answers.keys():
+        print("For {p}...".format(p=prize))
+        for list in questions_answers.values():
+            quest = list[0]
+            choices = list[1:5]
+            print(quest)
+            print(choices)
+            choice = input("Type in your answer: ")
+            choice_star = "*"+ choice.title()
+            if choice_star == list[-1]:
+                print("Congratulations! You have won {p}".format(p=prize))
+            else:
+                print("I'm sorry that's incorrect.")
+                break
 
-
+            
+display_questions()
 
 
