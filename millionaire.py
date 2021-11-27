@@ -43,23 +43,34 @@ questions_answers = {"£100": ["Who was elected President of the United States i
 "£500,000": ["What is the speed of sound approximately?", "1. 120km/h", "2. 1,200km/h", "3. 700km/h", "4. 900km/h", "*1,200km/h"], 
 "£1,000,000": ["The phrase ”I think, therefore I am” was coined by which philosopher?", "1. Socrates", "2. Plato", "3. Aristotle", "4. Descartes", "*Descartes"]}
 
-def display_questions():
-    for prize in questions_answers.keys():
-        print("For {p}...".format(p=prize))
-        for list in questions_answers.values():
-            quest = list[0]
-            choices = list[1:5]
-            print(quest)
-            print(choices)
-            choice = input("Type in your answer: ")
-            choice_star = "*"+ choice.title()
-            if choice_star == list[-1]:
-                print("Congratulations! You have won {p}".format(p=prize))
-            else:
-                print("I'm sorry that's incorrect.")
-                break
+def game_over():
+    print("Sorry that answer is incorrect. You lose.")   
+    print ("Better luck next time.")
 
-            
+
+def display_questions():
+    for prize, list in questions_answers.items():
+        print("For {p}...".format(p=prize))
+        
+        question = list[0]
+        choices = list[1:5]
+        print(question)
+        print("\n")
+        print(choices)
+        print("\n")
+        
+        choice = input("\nType in your answer: ")
+        print("\n")
+    
+        choice_star = "*"+ choice.title()
+        if choice_star == list[-1]:
+            print("\nCongratulations! You have won {p}".format(p=prize))
+        else:
+            break
+    
+
+             
 display_questions()
+game_over()
 
 
