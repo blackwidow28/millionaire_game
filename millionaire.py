@@ -51,7 +51,7 @@ def game_over():
 def display_questions():
     for prize, list in questions_answers.items():
         print("For {p}...".format(p=prize))
-        
+        print("\n")
         question = list[0]
         choices = list[1:5]
         print(question)
